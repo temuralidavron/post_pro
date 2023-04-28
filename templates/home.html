@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Bosh sahifa{% endblock title %}
+{% block content %}
+<br/>
+
+    {% if user.is_authenticated %}
+        {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Chiqib ketish</a></p>
+    {% else %}
+        <p>Saytga kirmagansiz</p>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+<div class="jumbotron">
+    <h1 class="display-4">Xush kelibsiz!</h1>
+<p class="lead">Bu sayt orqali Pop tumani yoshlar ishlari agentligining faoliyatiga oida ma'lumotlarni olishingiz mumkin</p>
+    <hr class="my-4">
+    <p>Bu yerda yoshlarga berilayotgan imkoniyatlar haqida birinchilardan b'lib habardor bo'lishingiz mumkin</p>
+    <p class="lead">
+        <a class=" btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">Postlarni ko'rish </a>
+    </p>
+
+</div>
+    {% endif %}
+{% endblock content %}
